@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IAM Policy Analyzer — find wildcards, escalation paths and public access</title>
+    <meta
+      name="description"
+      content="Paste an AWS IAM policy and get ranked findings with explanations and fixes: wildcards, privilege-escalation paths, public principals, missing MFA and more. Runs entirely in your browser."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="IAM Policy Analyzer" />
+    <meta
+      property="og:description"
+      content="Browser-only AWS IAM policy analyzer: finds wildcards, privilege-escalation paths and public access, with fixes."
+    />
+    <meta property="og:url" content="https://avinash9694.github.io/iam-policy-analyzer/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" content="#0b0d10" />
+    <link rel="icon" type="image/svg+xml" href="/iam-policy-analyzer/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('iam-analyzer:theme');
+          if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

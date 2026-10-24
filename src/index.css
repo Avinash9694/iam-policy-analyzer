@@ -1,0 +1,176 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+:root {
+  --bg: #0b0d10;
+  --surface: #12151a;
+  --surface-2: #181c23;
+  --surface-3: #1f242d;
+  --border: #262b35;
+  --border-strong: #353c49;
+  --fg: #e6e8ec;
+  --fg-muted: #9aa3b2;
+  --fg-subtle: #6b7484;
+  --accent: #f59e0b;
+  --accent-strong: #fbbf24;
+  --accent-fg: #0b0d10;
+  --accent-soft: rgb(245 158 11 / 0.14);
+  --highlight: rgb(245 158 11 / 0.16);
+  --highlight-border: rgb(245 158 11 / 0.7);
+  --focus: #fbbf24;
+  --sev-critical: #f87171;
+  --sev-high: #fb923c;
+  --sev-medium: #fbbf24;
+  --sev-low: #60a5fa;
+  --sev-info: #94a3b8;
+  --sev-mitigated: #4ade80;
+  --danger: #f87171;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -12px rgb(0 0 0 / 0.6);
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  --bg: #f6f6f4;
+  --surface: #ffffff;
+  --surface-2: #f1f2f4;
+  --surface-3: #e8eaee;
+  --border: #dcdfe4;
+  --border-strong: #c3c8d1;
+  --fg: #16181d;
+  --fg-muted: #525b69;
+  --fg-subtle: #7a8390;
+  --accent: #b45309;
+  --accent-strong: #92400e;
+  --accent-fg: #ffffff;
+  --accent-soft: rgb(180 83 9 / 0.12);
+  --highlight: rgb(245 158 11 / 0.2);
+  --highlight-border: rgb(180 83 9 / 0.8);
+  --focus: #b45309;
+  --sev-critical: #b91c1c;
+  --sev-high: #c2410c;
+  --sev-medium: #a16207;
+  --sev-low: #1d4ed8;
+  --sev-info: #475569;
+  --sev-mitigated: #15803d;
+  --danger: #b91c1c;
+  --shadow: 0 1px 2px rgb(16 24 40 / 0.06), 0 8px 24px -12px rgb(16 24 40 / 0.12);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --bg: #f6f6f4;
+    --surface: #ffffff;
+    --surface-2: #f1f2f4;
+    --surface-3: #e8eaee;
+    --border: #dcdfe4;
+    --border-strong: #c3c8d1;
+    --fg: #16181d;
+    --fg-muted: #525b69;
+    --fg-subtle: #7a8390;
+    --accent: #b45309;
+    --accent-strong: #92400e;
+    --accent-fg: #ffffff;
+    --accent-soft: rgb(180 83 9 / 0.12);
+    --highlight: rgb(245 158 11 / 0.2);
+    --highlight-border: rgb(180 83 9 / 0.8);
+    --focus: #b45309;
+    --sev-critical: #b91c1c;
+    --sev-high: #c2410c;
+    --sev-medium: #a16207;
+    --sev-low: #1d4ed8;
+    --sev-info: #475569;
+    --sev-mitigated: #15803d;
+    --danger: #b91c1c;
+    --shadow: 0 1px 2px rgb(16 24 40 / 0.06), 0 8px 24px -12px rgb(16 24 40 / 0.12);
+    color-scheme: light;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-soft: var(--accent-soft);
+  --color-highlight: var(--highlight);
+  --color-focus: var(--focus);
+  --color-danger: var(--danger);
+  --color-sev-critical: var(--sev-critical);
+  --color-sev-high: var(--sev-high);
+  --color-sev-medium: var(--sev-medium);
+  --color-sev-low: var(--sev-low);
+  --color-sev-info: var(--sev-info);
+  --color-sev-mitigated: var(--sev-mitigated);
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --shadow-card: var(--shadow);
+  --radius-xl: 0.75rem;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.editor-textarea:focus-visible {
+  outline: none;
+}
+
+*,
+*::before,
+*::after {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+.editor-text {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.5rem;
+  tab-size: 2;
+}
+
+.editor-textarea {
+  caret-color: var(--fg);
+  color: var(--fg);
+  background: transparent;
+}
+
+.editor-textarea::placeholder {
+  color: var(--fg-subtle);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
